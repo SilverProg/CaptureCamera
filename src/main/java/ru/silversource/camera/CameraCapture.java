@@ -31,9 +31,8 @@ public class CameraCapture extends JFrame {
 
         capture = new VideoCapture(cameraIndex);
 
-        capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 1080);
-        capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 720);
-
+        capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 640);
+        capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 480);
 
     }
 

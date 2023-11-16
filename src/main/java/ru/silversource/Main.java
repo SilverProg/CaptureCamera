@@ -9,10 +9,7 @@ import ru.silversource.camera.CameraCaptureAWT;
 import ru.silversource.camera.CameraScreen;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,63 +31,15 @@ public class Main {
         //SwingUtilities.invokeLater(CameraCaptureAWT::new);
         CameraCapture capture = new CameraCapture(0);
 
-        try {
+        /*try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         CameraScreen screen = new CameraScreen();
-        JLabel videoScreen = screen.getVideoScreen();
+        //JLabel videoScreen = screen.getVideoScreen();
 
-        //capture.
-        videoScreen.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if(e.getButton() == MouseEvent.BUTTON1) {
-                    System.out.println(e.getX());
-                    videoScreen.setIcon(capture.getImage());
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-        videoScreen.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    System.out.println(e.getKeyCode());
-                    videoScreen.setIcon(capture.getImage());
-                }
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-            }
-        });
+        screen.setCapture(capture);
 
 
         String urlIn = "../set1/dubel/dubel (2).jpg";
