@@ -41,17 +41,13 @@ public class CameraCapture extends JFrame {
            // MatOfRect face = new MatOfRect();
         capture.read(frame);
         BufferedImage image = matToBufferedImage(frame);
-
         return new ImageIcon(image);
     }
 
     private BufferedImage matToBufferedImage(Mat frame) {
-        //System.out.println(frame.size());
         BufferedImage image = new BufferedImage(frame.width(), frame.height(), BufferedImage.TYPE_3BYTE_BGR);
-
         byte[] data = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
         frame.get(0,0,data);
-
         return image;
     }
 }

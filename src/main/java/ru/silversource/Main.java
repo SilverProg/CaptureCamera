@@ -7,6 +7,7 @@ import org.opencv.videoio.VideoCapture;
 import ru.silversource.camera.CameraCapture;
 import ru.silversource.camera.CameraCaptureAWT;
 import ru.silversource.camera.CameraScreen;
+import ru.silversource.camera.SaveFrameOnMotion;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -29,21 +30,14 @@ public class Main {
         //SwingUtilities.invokeLater(CameraCaptureAWT::new);
         //CameraCaptureAWT.setCameraIndex(1);
         //SwingUtilities.invokeLater(CameraCaptureAWT::new);
-        CameraCapture capture = new CameraCapture(0);
-
-        /*try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        /*CameraCapture capture = new CameraCapture(0);
         CameraScreen screen = new CameraScreen();
-        //JLabel videoScreen = screen.getVideoScreen();
+        screen.setCapture(capture);*/
 
-        screen.setCapture(capture);
-
-
+        SwingUtilities.invokeLater(SaveFrameOnMotion::new);
         String urlIn = "../set1/dubel/dubel (2).jpg";
         String urlOut = "../test_outs/test2.jpg";
 
     }
+
 }
